@@ -1,0 +1,106 @@
+version: "3.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+  - checkpoint: play_action_checkpoint
+
+- story: happy play video path
+  steps:
+    - checkpoint: play_action_checkpoint
+    - intent: play_video
+    - action: action_video
+
+- story: cool video path
+  steps:
+    - intent: cool_play_video
+    - action: utter_play_cool_video
+
+- story: happy weather
+  steps:
+    - intent: weather
+    - action: utter_city
+    - intent: city
+    - action: action_weather_api
+
+- story: hospital path
+  steps:
+    - intent: hospital
+    - action: utter_welcome
+    - intent: affirm
+    - action: utter_beds_type
+
+- story: happy non icu vacant beds path
+  steps:
+    - intent: ICU_Vacant_beds
+    - action: utter_sure
+    - action: action_check_icu_vacant_beds
+
+- story: happy non icu vacant beds path
+  steps:
+    - intent: Non_ICU_Vacant_beds
+    - action: utter_sure
+    - action: action_check_non_icu_vacant_beds
+
+- story: utility path
+  steps:
+      - intent: bills_payment
+      - action: utter_bill_type
+
+- story: happy utility bill path
+  steps:
+    - intent: utility_bill
+    - action: utter_select_utility_provider
+
+- story: happy telephone bill path
+  steps:
+    - intent: telephone_bill
+    - action: utter_select_mobile_provider
+
+- story: happy insurance bill path
+  steps:
+    - intent: insurance_bill
+    - action: utter_sure
+
+#- story: happy name path
+#  steps:
+#  - intent: your_name
+#  - action: utter_iamabot
+#  - action: utter_my_name
+#  - intent: my_name
+#    entities:
+#      - name: "shankar"
+#  - slot_was_set:
+#      - name: "shankar"
+#  - action: utter_my_mobile_number
+#  - intent: my_mobile_number
+#    entities:
+#      - number: "0766119028"
+#  - slot_was_set:
+#      - number: "0766119028"
+#  - action: utter_thanks

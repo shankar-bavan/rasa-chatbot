@@ -1,0 +1,203 @@
+version: "3.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: tell_name
+  examples: |
+    - what is your name?
+    - your name please
+
+- intent: my_name
+  examples: |
+    - my name is [shankar]{"entity":"name","value":"shankar"}
+    - my name is [simon]{"entity":"name","value":"simon"}
+    - my name is [raj]{"entity":"name","value":"raj"}
+    - [shankar]{"entity":"name","value":"shankar"} is my name
+    - [shankar]{"entity":"name","value":"shankar"} this side
+    - people call me [shankar]{"entity":"name","value":"shankar"}
+
+- intent: play_video
+  examples: |
+    - play the mentioned video
+    - open the url
+    - open the link in browser
+    - show me the video that i asked for
+
+- intent: cool_play_video
+  examples: |
+    - play video
+    - play music
+
+- intent: my_mobile_number
+  examples: |
+    - my number is [0766119028]{"entity":"number"}
+    - [0766119028]{"entity":"number"}
+    - [0766119028]{"entity":"number"} is my number
+    - my nobile number is [0766119028]{"entity":"number"}
+
+- intent: out_of_scope
+  examples: |
+    - I want to order food
+    - What is 2 + 2?
+    - Who's the US President?
+
+- intent: weather
+  examples: |
+    - what's the weather
+    - i want to know the weather of today
+    - tell me the weather forcast
+    - hows the weather today
+
+- intent: city
+  examples: |
+    - Colombo
+    - colombo
+    - jaffna
+    - Jafna
+    - kandy
+    - mohali
+    - mumbai
+    - jaipur
+
+- intent: hospital
+  examples: |
+    - hospital
+
+- intent: ICU_Vacant_beds
+  examples: |
+    - I'm looking for ICU vacant beds.
+    - just looking for ICU vacant beds.
+    - i want icu vacant beds
+
+- intent: Non_ICU_Vacant_beds
+  examples: |
+    - I'm looking for Non ICU vacant beds.
+    - just looking for Non ICU vacant beds.
+    - i need non icu vacant beds
+
+- intent: bills_payment
+  examples: |
+    - bill
+    - payments
+
+- intent: utility_bill
+  examples: |
+    - water bill
+    - i want to pay water bill
+    - i want to pay electricity bill
+
+- intent: insurance_bill
+  examples: |
+    - i want to pay insurance
+    - insurance
+
+- intent: telephone_bill
+  examples: |
+    - i want to pay dialog bill
+    - i want to pay slt bill
+    - dialog
+    - mobitel bill
+
+- intent: mobile_bill
+  examples: |
+    - i want to pay mobile bill
+    - i want to pay telephone bill
+    - mobile
+    - telephone bill
+
+- intent: dialog_bill
+  examples: |
+    - i want to pay dialog bill
+    - i want to pay slt bill
+    - dialog
+    - mobitel bill
+    - slt
+    

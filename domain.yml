@@ -1,0 +1,155 @@
+version: "3.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - tell_name
+  - play_video
+  - cool_play_video
+  - out_of_scope
+  - weather
+  - city
+  - bills_payment
+  - telephone_bill
+  - insurance_bill
+  - utility_bill
+  - hospital
+  - ICU_Vacant_beds
+  - Non_ICU_Vacant_beds
+  - my_name:
+      use_entities:
+        - name
+  - my_mobile_number:
+      use_entities:
+        - number
+
+entities:
+  - name
+  - number
+
+slots:
+  name:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: name
+  number:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: number
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_welcome:
+    - text: "Are you looking for vacant beds?"
+      buttons:
+        - payload: "/affirm"
+          title: "YES"
+        - payload: "/deny"
+          title: "NO"
+
+  utter_beds_type:
+    - text: "What are you looking for?"
+      buttons:
+        - payload: "/ICU_Vacant_beds"
+          title: "ICU Vacant Beds"
+        - payload: "/Non_ICU_Vacant_beds"
+          title: "Non ICU Vacant Beds"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Thanks for the visit. \nWear mask, wash your hands regularly and keep 3m distance from each other. \nStay Home, Stay safe.\n"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_ask_name:
+  - text: "What is your name?"
+
+  utter_ask_number:
+  - text: "What is your mobile number?"
+
+  utter_thanks:
+  - text: "Thank you for providing information"
+
+  utter_sure:
+  - text: "Sure, let me check..."
+
+  utter_details_thanks:
+  - text: "Thanks for providing the given details \nName: {Name},\nMobile Number: {Mobile_number}"
+
+  utter_play_cool_video:
+    - text: "Enjoy"
+      attachment: { "type":"video", "payload":{ "src": "https://youtube.com/embed/Ssvu2yncgWU" } }
+
+  utter_out_of_scope:
+    - text: Sorry, I didn't get what you said. Please rephrase what you said.
+
+  utter_city:
+    - text: "which city you want to check for?"
+
+  utter_temp:
+    - text: "Today's temperature is {temp} degree Celsius."
+
+  utter_bill_type:
+    - text: "What would you like to pay?"
+      buttons:
+        - payload: "/telephone_bill"
+          title: "Mobile"
+        - payload: "/utility_bill"
+          title: "Utility"
+        - payload: "/insurance_bill"
+          title: "Insurance"
+
+  utter_select_mobile_provider:
+    - text: "Select provider"
+      buttons:
+        - payload: "/dialog_bill"
+          title: "Dialog"
+        - payload: "/slt_bill"
+          title: "SLT/Mobitel"
+
+  utter_select_utility_provider:
+    - text: "Select provider"
+      buttons:
+        - payload: "/telephone_bill"
+          title: "CEB"
+        - payload: "/utility_bill"
+          title: "Water Board"
+
+actions:
+  - action_submit
+  - action_video
+  - action_weather_api
+#  - action_service
+  - action_check_icu_vacant_beds
+  - action_check_non_icu_vacant_beds
+
+forms:
+  user_details_form:
+    required_slots:
+      - name
+      - number
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
